@@ -1,0 +1,70 @@
+﻿@model MIO.Football.Application.ViewModel.Matches.MatchesCompleteViewModel
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Partidas</h1>
+</div>
+<div class="row">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Partidas</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Clube da Casa</th>
+                            <th>Clube Convidado</th>
+                            <th>Status</th>
+                            <th>Início</th>
+                            <th>Final</th>
+                            <th>Duração</th>
+                            <th>Período Total</th>
+                            <th>Primeiro Tempo</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Clube da Casa</th>
+                            <th>Clube Convidado</th>
+                            <th>Status</th>
+                            <th>Início</th>
+                            <th>Final</th>
+                            <th>Duração</th>
+                            <th>Período Total</th>
+                            <th>Primeiro Tempo</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.matches)
+                        {
+                            <tr>
+                                <th>@item.homeTeam.name</th>
+                                <th>@item.awayTeam.name</th>
+                                <th>@item.status</th>
+                                <th>@item.utcDate</th>
+                                <th>@item.lastUpdated</th>
+                                <th>@item.score.duration</th>
+                                <th>@item.score.fullTime.homeTeam X @item.score.fullTime.fullTeam</th>
+                                <th>@item.score.halfTime.homeTeam X @item.score.halfTime.fullTeam</th>
+                                @*<th>@item.score.extraTime.homeTeam X @item.score.extraTime.fullTeam</th>
+                                    <th>@item.score.penaltes.homeTeam X @item.score.penaltes.fullTeam</th>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <link href="~/lib/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/datatables/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+}

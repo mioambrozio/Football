@@ -1,0 +1,73 @@
+﻿@model MIO.Football.Application.ViewModel.Standings.StandingsEntityViewModel
+@using Microsoft.AspNetCore.Http
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">
+        Classificação
+    </h1>
+    @Context.Session.GetString("PeriodoCampeonato")
+</div>
+<div class="row">
+    @if (Model.standings.Count > 0)
+    {
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Classificação </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Clube</th>
+                                <th>Jogos</th>
+                                <th>Ganhou</th>
+                                <th>Empatou</th>
+                                <th>Perdeu</th>
+                                <th>Pontos</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Clube</th>
+                                <th>Jogos</th>
+                                <th>Ganhou</th>
+                                <th>Empatou</th>
+                                <th>Perdeu</th>
+                                <th>Pontos</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model.standings[0].table)
+                            {
+                                <tr>
+                                    <th>@item.position</th>
+                                    <th><img class="img-time-18" src="@item.team.crestUrl" /> @item.team.name</th>
+                                    <th>@item.playedGames</th>
+                                    <th>@item.won</th>
+                                    <th>@item.draw</th>
+                                    <th>@item.lost</th>
+                                    <th>@item.points</th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+@section Styles{
+    <link href="~/lib/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/datatables/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+}

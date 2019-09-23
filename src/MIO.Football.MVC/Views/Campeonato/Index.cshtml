@@ -1,0 +1,17 @@
+﻿<form>
+    @using Microsoft.AspNetCore.Http
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">
+            @Context.Session.GetString("PeriodoCampeonato")
+        </h1>
+    </div>
+    <div class="row">
+        @Context.Session.GetString("AreaCampeonato")
+        <br />
+        @Context.Session.GetString("NomeCampeonato")
+    </div>
+
+    <div class="row">
+        <img class="img-football" src="https://thumbs.dreamstime.com/b/football-15892269.jpg" />
+    </div>
+</form>

@@ -1,0 +1,17 @@
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.deps.json
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.dll
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.pdb
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.AssemblyInfoInputs.cache
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.AssemblyInfo.cs
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.dll
+C:\Users\Miriam\source\repos\Teste\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.pdb
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.deps.json
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.dll
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\bin\Debug\netcoreapp2.2\MIO.Football.Domain.pdb
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.csprojAssemblyReference.cache
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.AssemblyInfoInputs.cache
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.AssemblyInfo.cs
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.dll
+C:\Users\Miriam\source\repos\TesteWay2\src\MIO.Football.Domain\obj\Debug\netcoreapp2.2\MIO.Football.Domain.pdb

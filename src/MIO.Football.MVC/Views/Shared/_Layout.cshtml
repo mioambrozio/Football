@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewData["Title"] - Football Coverage - API</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="~/lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
+        <link href="~/lib/toast/css/jquery.toast.css" rel="stylesheet" />
+    </environment>
+</head>
+<body id="page-top">
+    @using Microsoft.AspNetCore.Http
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-football  sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Index" asp-controller="Home">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Teste Way2 <sup>MiO</sup></div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link">
+                    <span>@Context.Session.GetString("NomeCampeonato")</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Classificacao" asp-controller="Campeonato">
+                    <i class="fa fa-futbol fa-tachometer-al"></i>
+                    <span>Classificação</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Times" asp-controller="Campeonato">
+                    <i class="fa fa-futbol fa-tachometer-al"></i>
+                    <span>Times</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Partidas" asp-controller="Campeonato">
+                    <i class="fa fa-futbol fa-tachometer-al"></i>
+                    <span>Partidas</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div>
+                        <h2 class="m-0 font-weight-bold text-primary">@Context.Session.GetString("NomeCampeonato")</h2>
+                    </div>
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mirian de Oliveira Ambrozio</span>
+                                <img class="img-profile rounded-circle" src="https://media.licdn.com/dms/image/C4D03AQGlumG7EaAxEQ/profile-displayphoto-shrink_200_200/0?e=1573689600&v=beta&t=MjfDrztAi8bPrm2t1lg7Zb391rNgq_-p_ngl-UjveSw">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" target="_blank" href="https://www.linkedin.com/in/mirian-de-oliveira-ambrozio-28571222/">
+                                    <i class="fab fa-linkedin fa-sm fa-fw mr-2 text-primary"></i>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Teste Football API - Way2 - MIO - 2019</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/jquery-easing/jquery.easing.js"></script>
+    <script src="~/lib/sb-admin-2/js/sb-admin-2.js"></script>
+    <script src="~/lib/toast/js/jquery.toast.js"></script>
+    <script src="~/lib/toast/toastr.js"></script>
+    <script src="~/lib/mask/jquery.inputmask.bundle.min.js"></script>
+    <script src="~/lib/mask/mask.init.js"></script>
+
+    @{ if (ViewBag.sucesso != null)
+        {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var message = "@ViewBag.sucesso.ToString()";
+                    @{ ViewBag.sucesso = ""; }
+                    MessageSucess("Sucesso", message);
+                });
+            </script>
+        }
+    }
+
+    @{ if (ViewBag.error != null)
+        {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var message = "@ViewBag.error.ToString()";
+                    @{ ViewBag.error = ""; }
+                    MessageError("Atenção", message);
+                });
+            </script>
+        }
+    }
+
+    @RenderSection("Styles", false)
+    @RenderSection("scripts", required: false)
+</body>
+</html>

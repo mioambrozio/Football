@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Sessão expirada";
+    Layout = "~/Views/Shared/_LayoutSimple.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-3 d-none d-lg-block"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Sua sessão expirou, você será redirecionado para a página de inicial.</h1>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <label id="Mensagem"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        var Tempo = 5;
+        function Counter() {
+
+            document.getElementById("Mensagem").innerHTML = Tempo + " segundos.";
+            Tempo--;
+
+            if (Tempo == "0") {
+                document.getElementById("Mensagem").innerHTML = "1 segundo<br><br>Redirecionando...";
+                history.pushState(null, null, location.href);
+                window.onpopstate = function (event) {
+                    history.go(1);
+                };
+                setTimeout(window.location.assign("/Home"), 1000);
+            }
+        }
+        setInterval(Counter, 1000);
+    </script>
+}
